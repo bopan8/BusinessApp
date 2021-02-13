@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Updating category</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <h1>Managing</h1>
+    <hr>
+    <h2>Update category</h2>
+    <form action="#" th:action="@{saveCategory}" th:object = "${productCategory}" method="post">
+
+        <input type="hidden" th:field="*{categoryId}" />
+
+        <input type="text", th:field = "*{categoryName}"
+                class="form-control mb-4 col-4">
+
+        <button type="submit" class="btn btn-info col-2">Update Category</button>
+    </form>
+    <hr>
+
+    <a th:href = "@{admin/dashboard/categories}"> Back to Categories List</a>
+</div>
+</body>
+</html>

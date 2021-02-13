@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Adding admin</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+</head>
+<body>
+
+        <div class="container">
+            <h1>Managing</h1>
+            <hr>
+            <h2>Save administrator</h2>
+
+            <form action="#" th:action="@{showFormForUpdateAdmin/saveAdmin}" th:object = "${administrator}" method="post">
+                <input type="text", th:field = "*{name}"
+                       placeholder="Admin Name" class="form-control mb-4 col-4">
+
+                <input type="text", th:field = "*{password}"
+                       placeholder="Admin Password" class="form-control mb-4 col-4">
+
+                <button type="submit" class="btn btn-info col-2">Save Admin</button>
+            </form>
+            <hr>
+
+            <a th:href = "@{admin/dashboard/admins}"> Back to Admin List</a>
+        </div>
+</body>
+</html>

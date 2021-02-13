@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Companies Managing</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+</head>
+<body>
+<div>
+    <h1>Companies Managing</h1>
+    <hr>
+    <h2>Update company</h2>
+
+    <form action="#" th:action="@{saveCompany}" th:object = "${companies}" method="post">
+
+        <input type="hidden" th:field="*{id}" />
+
+        <input type="text", th:field = "*{name}"
+               class="form-control mb-4 col-4">
+
+        <input type="text", th:field = "*{companyCountry}"
+               class="form-control mb-4 col-4">
+
+        <div class="form-group row">
+            <label class="form-control mb-4 col-4">Choose Category</label>
+            <div class="col-sm-8">
+                <select th:field = "*{productCategory}" class="form-control" required>
+                    <th:block th:each = "cat:${listOfCategories}">
+                        <option th:text = "${cat.categoryName}" th:value = "${cat.categoryId}"/>
+                    </th:block>
+                </select>
+            </div>
+        </div>
+
+        <input type="text", th:field = "*{companyPhone}"
+               class="form-control mb-4 col-4">
+
+        <input type="text", th:field = "*{password}"
+               class="form-control mb-4 col-4">
+
+        <input type="text", th:field = "*{companyMail}"
+               class="form-control mb-4 col-4">
+
+        <button type="submit" class="btn btn-info col-2">Update Company</button>
+    </form>
+
+    <hr>
+
+    <a th:href = "@{admin/dashboard/companies}"> Back to Companies List</a>
+</div>
+</body>
+</html>
